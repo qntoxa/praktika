@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Запрос отправлен | РТ</title>
+    <style>
+        body { font-family: 'Segoe UI', sans-serif; background-color: #f4f6f9; display: flex; align-items: center; justify-content: center; height: 100vh; margin: 0; }
+        .container { background: white; padding: 40px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); text-align: center; max-width: 450px; }
+        h2 { color: #eb5a00; font-weight: 400; margin-top: 0; }
+        p { color: #444; line-height: 1.6; font-size: 15px; }
+        .email-highlight { font-weight: bold; color: #1a1a1a; }
+        .btn { display: inline-block; margin-top: 25px; padding: 12px 24px; background-color: #eb5a00; color: white; text-decoration: none; font-size: 14px; }
+        .btn:hover { background-color: #d45100; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Заявка успешно принята</h2>
+        <p>Данные организации прошли верификацию.</p>
+        <p>Индивидуальная ссылка для входа в демонстрационную систему отправлена на ваш корпоративный ящик:
+<span class="email-highlight">{{.}}</span></p>
+        <a href="/" class="btn">Вернуться назад</a>
+    </div>
+</body>
+</html>
