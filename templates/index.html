@@ -6,143 +6,50 @@
     <style>
         body { 
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
-            margin: 0; 
-            padding: 0; 
-            height: 100vh; 
-            display: flex; 
-            align-items: center; 
-            justify-content: center; 
-            /* Фирменный сложный градиент как на фото 1000012672.jpg */
+            margin: 0; padding: 0; height: 100vh; 
+            display: flex; align-items: center; justify-content: center; 
             background: 
                 radial-gradient(circle at top right, #6112a3 20%, transparent 60%),
                 radial-gradient(circle at bottom right, #415a5c 40%, transparent 70%),
                 linear-gradient(135deg, #ffffff 45%, #771ecb 50%, #466769 55%);
-            background-size: cover;
-            position: relative;
-            overflow: hidden;
+            background-size: cover; position: relative; overflow: hidden;
         }
-
-        /* Симуляция логотипа Ростелекома в левом верхнем углу */
         .rt-logo-top {
-            position: absolute;
-            top: 30px;
-            left: 40px;
-            width: 25px;
-            height: 40px;
+            position: absolute; top: 30px; left: 40px; width: 25px; height: 40px;
             background: linear-gradient(to bottom, #76a0d0 50%, #eb5a00 50%);
-            border-top-left-radius: 12px;
-            border-bottom-left-radius: 12px;
-            transform: skewY(-10deg);
+            border-top-left-radius: 12px; border-bottom-left-radius: 12px; transform: skewY(-10deg);
         }
-
         .login-card { 
-            background: #ffffff; 
-            padding: 40px 45px; 
-            width: 100%; 
-            max-width: 380px; 
-            box-shadow: 0 10px 30px rgba(0,0,0,0.15); 
-            box-sizing: border-box;
-            text-align: left;
+            background: #ffffff; padding: 35px 40px; width: 100%; max-width: 420px; 
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15); box-sizing: border-box; text-align: left;
         }
-
         .system-title {
-            font-size: 11px;
-            color: #333333;
-            line-height: 1.4;
-            margin-bottom: 30px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.3px;
+            font-size: 10px; color: #333333; line-height: 1.4; margin-bottom: 25px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.3px;
         }
-
-        h2 { 
-            margin: 0 0 25px 0; 
-            color: #1a1a1a; 
-            font-size: 22px; 
-            font-weight: 400; 
+        h2 { margin: 0 0 20px 0; color: #1a1a1a; font-size: 22px; font-weight: 400; }
+        .form-group { margin-bottom: 18px; }
+        input[type="text"], input[type="email"], input[type="tel"] { 
+            width: 100%; padding: 8px 0; border: none; border-bottom: 1px solid #dcdcdc; 
+            box-sizing: border-box; font-size: 14px; color: #333; background: transparent; transition: border-color 0.2s;
         }
-
-        .form-group { 
-            margin-bottom: 25px; 
-        }
-
-        /* Поля ввода в стиле РТ — только нижняя линия */
-        input[type="text"], input[type="email"] { 
-            width: 100%; 
-            padding: 8px 0; 
-            border: none;
-            border-bottom: 1px solid #dcdcdc; 
-            box-sizing: border-box; 
-            font-size: 14px; 
-            color: #333;
-            background: transparent;
-            transition: border-color 0.2s;
-        }
-
-        input:focus { 
-            border-bottom-color: #eb5a00; 
-            outline: none; 
-        }
-
-        input::placeholder {
-            color: #999999;
-        }
-
-        /* Ярко-оранжевая кнопка из референса */
+        input:focus { border-bottom-color: #eb5a00; outline: none; }
+        input::placeholder { color: #999999; }
         button { 
-            width: 100%; 
-            padding: 12px; 
-            background-color: #eb5a00; 
-            border: none; 
-            color: white; 
-            font-size: 14px; 
-            font-weight: 500; 
-            cursor: pointer; 
-            margin-top: 15px;
-            transition: background-color 0.2s;
+            width: 100%; padding: 12px; background-color: #eb5a00; border: none; 
+            color: white; font-size: 14px; font-weight: 500; cursor: pointer; margin-top: 10px; transition: background-color 0.2s;
         }
-
-        button:hover { 
-            background-color: #d45100; 
-        }
-
+        button:hover { background-color: #d45100; }
         .error { 
-            color: #d9381e; 
-            background-color: #fdf0ed; 
-            padding: 10px; 
-            font-size: 13px; 
-            margin-bottom: 20px; 
-            border-left: 3px solid #d9381e; 
+            color: #d9381e; background-color: #fdf0ed; padding: 10px; font-size: 13px; margin-bottom: 20px; border-left: 3px solid #d9381e; 
         }
-
         .footer-logo {
-            margin-top: 40px;
-            padding-top: 15px;
-            border-top: 1px solid #f0f0f0;
-            font-size: 11px;
-            color: #666;
-            display: flex;
-            align-items: center;
+            margin-top: 30px; padding-top: 15px; border-top: 1px solid #f0f0f0; font-size: 11px; color: #666; display: flex; align-items: center;
         }
-
         .footer-logo .icon {
-            width: 12px;
-            height: 20px;
-            background: linear-gradient(to bottom, #76a0d0 50%, #eb5a00 50%);
-            border-top-left-radius: 6px;
-            border-bottom-left-radius: 6px;
-            margin-right: 8px;
-            display: inline-block;
+            width: 12px; height: 20px; background: linear-gradient(to bottom, #76a0d0 50%, #eb5a00 50%);
+            border-top-left-radius: 6px; border-bottom-left-radius: 6px; margin-right: 8px; display: inline-block;
         }
-
-        .nav-link { 
-            display: block; 
-            text-align: center;
-            margin-top: 15px; 
-            color: #ff6600; 
-            text-decoration: none; 
-            font-size: 12px; 
-        }
+        .nav-link { display: block; text-align: center; margin-top: 15px; color: #ff6600; text-decoration: none; font-size: 12px; }
         .nav-link:hover { text-decoration: underline; }
     </style>
 </head>
@@ -152,10 +59,10 @@
 
     <div class="login-card">
         <div class="system-title">
-            Единая автоматизированная система предоставления и мониторинга демо-доступа объектов инфраструктуры
+            Единая автоматизированная система предоставления демо-доступа объектов инфраструктуры
         </div>
         
-        <h2>Авторизация</h2>
+        <h2>Заявка на доступ</h2>
         
         {{if .}}
             <div class="error">{{.}}</div>
@@ -163,15 +70,24 @@
 
         <form method="POST" action="/">
             <div class="form-group">
-                <input type="text" id="org_name" name="org_name" required placeholder="Наименование организации">
+                <input type="text" name="org_name" required placeholder="Наименование организации">
             </div>
             <div class="form-group">
-                <input type="text" id="inn" name="inn" required placeholder="ИНН организации">
+                <input type="text" name="inn" required placeholder="ИНН организации">
             </div>
             <div class="form-group">
-                <input type="email" id="email" name="email" required placeholder="Корпоративный email">
+                <input type="text" name="full_name" required placeholder="ФИО заявителя полностью">
             </div>
-            <button type="submit">Вход</button>
+            <div class="form-group">
+                <input type="text" name="position" required placeholder="Должность">
+            </div>
+            <div class="form-group">
+                <input type="tel" name="phone" required placeholder="Контактный телефон (например, +7...)">
+            </div>
+            <div class="form-group">
+                <input type="email" name="email" required placeholder="Корпоративный email">
+            </div>
+            <button type="submit">Отправить запрос</button>
         </form>
 
         <div class="footer-logo">
@@ -179,10 +95,9 @@
             <div>
                 <strong>Ростелеком Демо</strong>
 
-                <span style="color:#999; font-size:10px;">Поддержка пользователей: crm@rt.ru</span>
+                <span style="color:#999; font-size:10px;">Поддержка: crm@rt.ru</span>
             </div>
         </div>
-        
         <a href="/admin" class="nav-link">Панель администратора →</a>
     </div>
 

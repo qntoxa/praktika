@@ -7,41 +7,46 @@
         body { font-family: 'Segoe UI', sans-serif; background-color: #f4f6f9; margin: 30px; color: #333; }
         h2 { color: #1a1a1a; font-weight: 400; margin-bottom: 25px; }
         table { width: 100%; border-collapse: collapse; background: white; margin-top: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
-        th, td { padding: 14px 18px; text-align: left; border-bottom: 1px solid #eef0f2; font-size: 14px; }
+        th, td { padding: 12px 15px; text-align: left; border-bottom: 1px solid #eef0f2; font-size: 13px; }
         th { background-color: #415a5c; color: white; font-weight: 500; }
         tr:hover { background-color: #f8fafb; }
         .empty { text-align: center; color: #7f8c8d; padding: 40px; font-style: italic; }
         .btn { display: inline-block; padding: 10px 20px; background-color: #eb5a00; color: white; text-decoration: none; font-size: 14px; font-weight: 500; }
         .btn:hover { background-color: #d45100; }
-        code { background: #f0f0f0; padding: 3px 6px; border-radius: 3px; font-size: 13px; }
+        code { background: #f0f0f0; padding: 3px 6px; border-radius: 3px; font-size: 12px; }
     </style>
 </head>
 <body>
-    <h2>Журнал запросов демо-доступа (Оперативная память RAM)</h2>
-    <a href="/" class="btn">← Вернуться к авторизации</a>
+    <h2>Журнал активных заявок (RAM-Storage)</h2>
+    <a href="/" class="btn">← К форме авторизации</a>
     
     <table>
         <thead>
             <tr>
                 <th>ID Токена</th>
-                <th>Организация</th>
-                <th>ИНН</th>
-                <th>Email пользователя</th>
-                <th>Дата и время</th>
+                <th>Организация (ИНН)</th>
+                <th>ФИО заявителя</th>
+                <th>Должность</th>
+                <th>Телефон</th>
+                <th>Email</th>
+                <th>Дата создания</th>
             </tr>
         </thead>
         <tbody>
             {{range .}}
             <tr>
                 <td><code>{{.ID}}</code></td>
-                <td><strong>{{.OrgName}}</strong></td>
-                <td>{{.INN}}</td>
+                <td><strong>{{.OrgName}}</strong>
+<small style="color:#666;">ИНН: {{.INN}}</small></td>
+                <td>{{.FullName}}</td>
+                <td>{{.Position}}</td>
+                <td>{{.Phone}}</td>
                 <td>{{.Email}}</td>
                 <td>{{.CreatedAt.Format "02.01.2006 15:04:05"}}</td>
             </tr>
             {{else}}
             <tr>
-                <td colspan="5" class="empty">В оперативной памяти нет активных сессий авторизации.</td>
+                <td colspan="7" class="empty">В оперативной памяти нет активных заявок.</td>
             </tr>
             {{end}}
         </tbody>
